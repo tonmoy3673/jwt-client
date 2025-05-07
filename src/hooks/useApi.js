@@ -6,7 +6,7 @@ import API from "../component/Services/api";
 export const useApi =()=>{
     const [data,setData] = useState([]);
     const [error,setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
 
     // =========== post function ======//

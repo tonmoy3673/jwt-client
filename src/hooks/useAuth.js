@@ -13,7 +13,7 @@ export const useAuth = () => {
         try {
             const data = await api.post('/auth/register',userData);
             setUser(data);
-            navigate('/dashboard');
+            navigate('/');
             return data;
 
         } catch (err) {
@@ -27,7 +27,7 @@ export const useAuth = () => {
         try{
             const data = await api.post('/auth/login', userData);
             setUser(data);
-            navigate('/dashboard');
+            navigate('/');
             return data;
         }
         catch (err){

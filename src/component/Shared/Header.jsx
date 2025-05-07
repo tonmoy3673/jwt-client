@@ -23,7 +23,7 @@ const Header = () => {
                hover:bg-amber-500 hover:border-amber-500 shadow-md 
                transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Register</button></NavLink>
                    
-                <NavLink to='/login'> <button className='hover:text-white font-semibold rounded-lg cursor-pointer px-7 py-2 text-sm border border-blue-600 
+                <NavLink to='/login'> <button className='text-blue-500 hover:text-white font-semibold rounded-lg cursor-pointer px-7 py-2 text-sm border border-blue-600 
                hover:bg-amber-500 hover:border-amber-500 shadow-md 
                transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Login</button></NavLink>
                  </div>
