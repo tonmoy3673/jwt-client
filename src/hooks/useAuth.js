@@ -7,7 +7,7 @@ export const useAuth = () => {
     const api = useApi();
     const {loading,error} = api;
     const navigate = useNavigate();
-    const [user,setUser] = useState(null);
+    const [user,setUser] = useState([]);
 
     const register = async (userData)=>{
         try {
@@ -21,7 +21,6 @@ export const useAuth = () => {
         
     }
 }
-
     const login = async (userData)=>{
 
         try{
@@ -39,7 +38,7 @@ export const useAuth = () => {
         try{
             await api.post('/auth/logout');
             setUser(null);
-            navigate('/');
+            navigate('/login');
         }
         catch (err){
             console.log(err);

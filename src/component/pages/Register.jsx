@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Register =()=>{
-
+    
     const [formData,setFormData] = useState({
         username:'',
         email:'',
@@ -13,6 +13,7 @@ const Register =()=>{
 
     const {register,loading,error} = useAuth();
     const {username,email,password,confirmPassword} = formData;
+    const navigate = useNavigate();
 
     const onChange =(e)=>{
         
@@ -34,6 +35,7 @@ const Register =()=>{
                 password: '',
                 confirmPassword: ''
               });
+              navigate('/')
             console.log(username,email,password);
         }
         catch(err){

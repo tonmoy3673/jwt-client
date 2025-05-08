@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = () => {
+
+    const {user,logout} = useAuth();
+    console.log(user);
+
+
+
     return (
         <div>
             {/* ============ Nav Container ========== */}
@@ -18,15 +25,27 @@ const Header = () => {
                    <NavLink className={({isActive})=> `hover:text-amber-500 ${isActive?'text-fuchsia-700 underline' :'text-blue-500'}` } to='/feedback'>Feedback</NavLink> 
                 </ul>
                  {/* ========= Buttons ======== */}
-                <div className='flex flex-col md:flex-row gap-x-5'>
-                <NavLink to='/register'><button className='text-white text-sm font-semibold rounded-lg cursor-pointer px-4 py-2 bg-blue-600 border border-blue-600 
-               hover:bg-amber-500 hover:border-amber-500 shadow-md 
-               transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Register</button></NavLink>
-                   
-                <NavLink to='/login'> <button className='text-blue-500 hover:text-white font-semibold rounded-lg cursor-pointer px-7 py-2 text-sm border border-blue-600 
-               hover:bg-amber-500 hover:border-amber-500 shadow-md 
-               transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Login</button></NavLink>
-                 </div>
+               {
+                user ? (
+
+                    <div><button onClick={logout} className='text-blue-500 hover:text-white font-semibold rounded-lg cursor-pointer px-7 py-2 text-sm border border-blue-600 
+                    hover:bg-amber-500 hover:border-amber-500 shadow-md 
+                    transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Logout</button>
+                      </div>
+                    
+                ):
+                (
+                    <div className='flex flex-col md:flex-row gap-x-5'>
+                    <NavLink to='/register'><button className='text-white text-sm font-semibold rounded-lg cursor-pointer px-4 py-2 bg-blue-600 border border-blue-600 
+                   hover:bg-amber-500 hover:border-amber-500 shadow-md 
+                   transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Register</button></NavLink>
+                       
+                    <NavLink to='/login'> <button className='text-blue-500 hover:text-white font-semibold rounded-lg cursor-pointer px-7 py-2 text-sm border border-blue-600 
+                   hover:bg-amber-500 hover:border-amber-500 shadow-md 
+                   transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-400'>Login</button></NavLink>
+                     </div>
+                )
+               }
             </nav>
         </div>
     );
